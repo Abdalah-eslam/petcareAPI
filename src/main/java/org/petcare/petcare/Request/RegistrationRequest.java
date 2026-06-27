@@ -1,6 +1,5 @@
-package org.petcare.petcare.DTO;
+package org.petcare.petcare.Request;
 
-import jakarta.persistence.Column;
 import lombok.Data;
 
 @Data

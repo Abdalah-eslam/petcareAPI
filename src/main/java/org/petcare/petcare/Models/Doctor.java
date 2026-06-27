@@ -15,4 +15,5 @@ import lombok.Setter;
 @PrimaryKeyJoinColumn(name = "doctor_id")
 public class Doctor extends User{
     private Long id;
+    private  String specialization;
 }
