@@ -2,11 +2,12 @@ package org.petcare.petcare.Service.appointment;
 
 import org.petcare.petcare.Models.Appointment;
 import org.petcare.petcare.Request.AppointmentUpdateRequest;
+import org.petcare.petcare.Request.BookAppointmentRequest;
 
 import java.util.List;
 
 public interface IAppointmentService {
-    Appointment addAppointment(Appointment appointment , long DoctorId , long petId);
+    Appointment addAppointment(BookAppointmentRequest request , long DoctorId , long petId);
     Appointment updateAppointment(long appointmentId , AppointmentUpdateRequest request );
     Appointment getAppointmentById(long id);
     void deleteAppointment(long id);

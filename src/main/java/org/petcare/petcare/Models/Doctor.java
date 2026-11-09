@@ -6,14 +6,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@PrimaryKeyJoinColumn(name = "doctor_id")
 public class Doctor extends User{
     private Long id;
     private  String specialization;
+    private BigDecimal ConsultationFee;
+    private  String  Bio;
+    private byte Experience;
 }

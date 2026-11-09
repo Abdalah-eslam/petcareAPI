@@ -1,5 +1,6 @@
 package org.petcare.petcare.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,13 +13,17 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,6 +38,9 @@ public class Appointment {
     private String  appointmentNO;
     @Enumerated(EnumType.STRING)
     private AppointmentStatus status;
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
 
 
     public void Addpatient(User patient) {

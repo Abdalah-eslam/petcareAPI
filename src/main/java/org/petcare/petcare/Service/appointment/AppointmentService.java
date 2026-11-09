@@ -8,7 +8,9 @@ import org.petcare.petcare.Models.User;
 import org.petcare.petcare.Repository.appointmentRepository;
 import org.petcare.petcare.Repository.userRepository;
 import org.petcare.petcare.Request.AppointmentUpdateRequest;
+import org.petcare.petcare.Request.BookAppointmentRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
@@ -21,13 +23,20 @@ public class AppointmentService implements IAppointmentService{
     private final appointmentRepository appointmentRepository;
     private final userRepository userRepository;
 
+    @Transactional
     @Override
-    public Appointment addAppointment(Appointment appointment, long DoctorId, long petId) {
+    public Appointment addAppointment(BookAppointmentRequest request, long DoctorId, long petId) {
 
         Optional<User> doctor = userRepository.findById(DoctorId);
         Optional<User> patient = userRepository.findById(petId);
 
         if (doctor.isPresent() && patient.isPresent()) {
+            //
+            Appointment appointment = request.getAppointment();
+
+
+
+            //
             appointment.AddDoctor(doctor.get());
             appointment.Addpatient(patient.get());
             appointment.setAppointmentNO("APPT-" + System.currentTimeMillis());

@@ -2,6 +2,9 @@ package org.petcare.petcare.Service.User;
 
 import lombok.RequiredArgsConstructor;
 import org.petcare.petcare.Exeption.ResourceNotFoundException;
+import org.petcare.petcare.Models.Admin;
+import org.petcare.petcare.Models.Doctor;
+import org.petcare.petcare.Models.Patient;
 import org.petcare.petcare.Request.RegistrationRequest;
 import org.petcare.petcare.Factory.UserFactroy;
 import org.petcare.petcare.Models.User;
@@ -21,9 +24,19 @@ public class userService implements IUserservice {
     public User save(RegistrationRequest req) {
         return userFactroy.createUser(req);
     }
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<Patient> getAllPatient() {
+        return (List<Patient>) userFactroy.getUsers("Patient");
     }
+
+    public List<Doctor> getAllDoctor() {
+        return (List<Doctor>) userFactroy.getUsers("Doctor");
+    }
+
+    public List<Admin> getAllAdmin() {
+        return (List<Admin>) userFactroy.getUsers("Admin");
+    }
+
+
     @Override
     public User update(Long userid, UserUpdateRequest req) {
         User user =getUserById(userid);
@@ -33,8 +46,6 @@ public class userService implements IUserservice {
             user.setLastName(req.getLastName());
             user.setPhoneNumber(req.getPhoneNumber());
             user.setGender(req.getGender());
-            user.setSpecialization(req.getSpecialization());
-
         return userRepository.save(user);
     }
 @Override
