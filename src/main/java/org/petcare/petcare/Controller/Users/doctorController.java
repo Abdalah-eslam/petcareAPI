@@ -1,20 +1,21 @@
-package org.petcare.petcare.Controller;
+package org.petcare.petcare.Controller.Users;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.petcare.petcare.DTO.DoctorDto;
-import org.petcare.petcare.DTO.UserDto;
 import org.petcare.petcare.Mapper.UserMapper;
 import org.petcare.petcare.Models.Doctor;
 import org.petcare.petcare.Models.User;
 import org.petcare.petcare.Request.DoctorRegistrationRequest;
-import org.petcare.petcare.Request.RegistrationRequest;
+import org.petcare.petcare.Response.Appointment.DoctorDailyScheduleResponse;
 import org.petcare.petcare.Response.ResponseAPI;
 import org.petcare.petcare.Service.User.userService;
+import org.petcare.petcare.Service.doctorSchedule.DoctorAvailabilityService;
 import org.petcare.petcare.utils.urlMapping;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,6 +26,7 @@ import java.util.stream.Collectors;
 public class doctorController {
     private final userService userService;
     private final UserMapper userMapper;
+    private final DoctorAvailabilityService doctorAvailabilityService;
 
         @PostMapping()
         public ResponseEntity<ResponseAPI> saveUser(@RequestBody DoctorRegistrationRequest req) {
@@ -47,5 +49,13 @@ public class doctorController {
         userService.delete(userId);
         return ResponseEntity.ok(new ResponseAPI("User deleted successfully", "Success", null));
 
+    }
+
+    @GetMapping("/{doctorId}/schedule")
+    public ResponseEntity<DoctorDailyScheduleResponse> getDoctorSchedule(
+            @PathVariable Long doctorId,
+            @RequestParam LocalDate date
+    ){
+            return ResponseEntity.ok(doctorAvailabilityService.getDoctorDailySchedule(doctorId, date));
     }
 }

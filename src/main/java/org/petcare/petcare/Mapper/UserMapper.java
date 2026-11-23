@@ -5,6 +5,7 @@ import org.modelmapper.ModelMapper;
 import org.petcare.petcare.DTO.*;
 import org.petcare.petcare.Models.*;
 import org.petcare.petcare.Request.RegistrationRequest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,11 +13,12 @@ import org.springframework.stereotype.Component;
 public class UserMapper {
 
     private final ModelMapper modelMapper;
+    private final PasswordEncoder passwordEncoder;
 
     // Set common attributes
     public void setCommonAttributes(RegistrationRequest request, User user) {
         user.setEmail(request.getEmail());
-        user.setPassword(request.getPassword());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
         user.setPhoneNumber(request.getPhoneNumber());

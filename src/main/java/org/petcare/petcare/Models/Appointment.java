@@ -30,7 +30,8 @@ public class Appointment {
     private  Long id;
     private String reason ;
     private LocalDate date;
-    private LocalTime time;
+    private LocalTime startTime;
+    private LocalTime endTime;
     @ManyToOne(fetch = FetchType.LAZY)
     private User doctor;
     @ManyToOne(fetch = FetchType.LAZY)

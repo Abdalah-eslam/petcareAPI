@@ -13,6 +13,11 @@ public class ExeptionHandller {
         return ResponseEntity.status(404).body(new ResponseAPI("error", e.getMessage(), null));
     }
 
+    @ExceptionHandler(BadRequestInputException.class)
+    public ResponseEntity<ResponseAPI> handleException(BadRequestInputException e) {
+        return ResponseEntity.status(400).body(new ResponseAPI("error", e.getMessage(), null));
+    }
+
     @ExceptionHandler(UserAlreadyExistsException.class)
     public ResponseEntity<ResponseAPI> handleException(UserAlreadyExistsException e) {
         return ResponseEntity.status(409).body(new ResponseAPI("error", e.getMessage(), null));

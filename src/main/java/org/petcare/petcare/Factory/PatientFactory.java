@@ -4,10 +4,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.petcare.petcare.Models.Address;
 import org.petcare.petcare.Request.PatientRegistrationRequest;
-import org.petcare.petcare.Request.RegistrationRequest;
 import org.petcare.petcare.Mapper.UserMapper;
 import org.petcare.petcare.Models.Patient;
-import org.petcare.petcare.Repository.patientRepository;
+import org.petcare.petcare.Repository.Users.patientRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

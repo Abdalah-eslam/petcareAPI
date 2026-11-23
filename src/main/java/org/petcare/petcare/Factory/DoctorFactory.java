@@ -2,10 +2,9 @@ package org.petcare.petcare.Factory;
 
 import lombok.RequiredArgsConstructor;
 import org.petcare.petcare.Request.DoctorRegistrationRequest;
-import org.petcare.petcare.Request.RegistrationRequest;
 import org.petcare.petcare.Mapper.UserMapper;
 import org.petcare.petcare.Models.Doctor;
-import org.petcare.petcare.Repository.doctorRepository;
+import org.petcare.petcare.Repository.Users.doctorRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

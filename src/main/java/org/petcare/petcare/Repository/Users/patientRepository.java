@@ -1,4 +1,4 @@
-package org.petcare.petcare.Repository;
+package org.petcare.petcare.Repository.Users;
 
 import org.petcare.petcare.Models.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;

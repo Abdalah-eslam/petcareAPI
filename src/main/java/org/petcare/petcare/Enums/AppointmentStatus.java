@@ -1,10 +1,11 @@
 package org.petcare.petcare.Enums;
 
 public enum AppointmentStatus {
-    ON_GOING,
-    PENDING,
-    APPROVED,
-    NOT_APPROVED,
-    CONFIRMED,
-    CANCELLED
+    BOOKED,
+    WAITING,
+    CALLED,
+    IN_PROGRESS,
+    COMPLETED,
+    CANCELLED,
+    NO_SHOW
 }

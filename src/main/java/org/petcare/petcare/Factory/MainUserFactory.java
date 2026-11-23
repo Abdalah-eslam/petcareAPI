@@ -10,7 +10,7 @@ import org.petcare.petcare.Request.PatientRegistrationRequest;
 import org.petcare.petcare.Request.RegistrationRequest;
 import org.petcare.petcare.Exeption.UserAlreadyExistsException;
 import org.petcare.petcare.Models.User;
-import org.petcare.petcare.Repository.userRepository;
+import org.petcare.petcare.Repository.Users.userRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

@@ -3,10 +3,9 @@ package org.petcare.petcare.Factory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.petcare.petcare.Request.AdminRegistrationRequest;
-import org.petcare.petcare.Request.RegistrationRequest;
 import org.petcare.petcare.Mapper.UserMapper;
 import org.petcare.petcare.Models.Admin;
-import org.petcare.petcare.Repository.adminRepository;
+import org.petcare.petcare.Repository.Users.adminRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

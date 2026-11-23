@@ -1,9 +1,10 @@
-package org.petcare.petcare.Controller;
+package org.petcare.petcare.Controller.Appointment;
 
 import lombok.RequiredArgsConstructor;
 import org.petcare.petcare.Models.Appointment;
 import org.petcare.petcare.Request.AppointmentUpdateRequest;
 import org.petcare.petcare.Request.BookAppointmentRequest;
+import org.petcare.petcare.Response.Appointment.AppointmentResponse;
 import org.petcare.petcare.Response.ResponseAPI;
 import org.petcare.petcare.Service.appointment.AppointmentService;
 import org.petcare.petcare.utils.urlMapping;
@@ -38,9 +39,9 @@ public class appointmentController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<ResponseAPI> createAppointment(@RequestBody BookAppointmentRequest request , @RequestParam Long patId , @RequestParam Long docId) {
+    public ResponseEntity<ResponseAPI> createAppointment(@RequestBody BookAppointmentRequest request ) {
 
-            Appointment savedAppointment = appointmentService.addAppointment(request,docId,patId);
+            AppointmentResponse savedAppointment = appointmentService.addAppointment(request);
             return ResponseEntity.ok(new ResponseAPI("success", "success", savedAppointment));
     }
 
